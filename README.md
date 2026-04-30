@@ -1,6 +1,11 @@
-# Quick Start StrongDM with Terraform and AWS
+# Quick Add Two New Gateways To Your Existing VPC
 
-This Terraform module gets you up and running with StrongDM quickly by automating the creation of a proxy cluster and a variety of users and resources. Keep reading to get hands-on experience and test StrongDM's capabilities when integrating with Amazon Web Services (AWS).
+This Terraform module will create two new gateways in your AWS Console and add them to your StrongDM AdminUI.
+
+What will be created in AWS:
+
+- Two t3.medium EC2 Gateway instances
+- 1 Security Group for the new Gateways
 
 ## Prerequisites
 
@@ -42,7 +47,7 @@ Modify the `config.tf` file to with your project Name, VPC ID, Subnet IDs, and r
    export SDM_API_SECRET_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
    # For the AWS creds, ideally set your profile.
-   export AWS_PROFILE=sandbox-admin
+   export AWS_PROFILE=sdm-admin
 
    # Otherwise, set your keys
    # export AWS_ACCESS_KEY_ID=xxxxxxxxx
@@ -57,7 +62,13 @@ Modify the `config.tf` file to with your project Name, VPC ID, Subnet IDs, and r
    terraform init
    ```
 
-5. Execute the actions proposed in the Terraform plan:
+5. Plan your Terraform deployment:
+
+   ```shell
+   terraform plan
+   ```
+
+6. Execute the actions proposed in the Terraform plan:
 
    ```shell
    terraform apply
@@ -65,7 +76,7 @@ Modify the `config.tf` file to with your project Name, VPC ID, Subnet IDs, and r
 
    The script runs until it is complete. Note any errors. If there are no errors, you should see new resources, such as databases, clusters, or servers, in the StrongDM Admin UI. Additionally, your AWS Management Console displays any new resources added when you ran the module.
 
-6. If necessary, remove the resources created with your Terraform plan:
+7. If necessary, remove the resources created with your Terraform plan:
 
    ```shell
    terraform destroy

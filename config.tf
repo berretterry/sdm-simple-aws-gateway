@@ -6,18 +6,18 @@
 # =============================================================================
 
 locals {
-  name = "russ-test-gateway"
+  name = "new-gateways"
 
-  vpc_id = "vpc-0f0ffe2030fbf794b"
+  vpc_id = "vpc-123456789abcdef0"
 
   region = "us-west-2"
 
   # The number of gateways created is determined by the number of subnet IDs
   # provided in the variable "gateway_subnet_ids". To create multiple gateways,
   # simply add more subnet IDs to the list.
-  public_subnet_ids = ["subnet-01a8784d0640f2a27", "subnet-053fcc741e412624f"]
+  public_subnet_ids = ["subnet-1234567890", "subnet-abcdef1234"]
 
-  private_subnet_ids = ["subnet-0e34dd2d5952ae666", "subnet-0a2deeb80bb64d447"]
+  private_subnet_ids = ["subnet-1234567890", "subnet-1234567890"]
 
   tags = merge(
     # Enter Tags here:
